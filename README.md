@@ -22,11 +22,19 @@ The `klipper_config_switcher` is a custom Klipper plugin that allows users to sw
 - Access to the Raspberry Pi or other control hardware running Klipper.
 
 ### Steps to Install
+
 1. **Clone the Repository:**
 
 ```bash
 cd ~/
 git clone https://github.com/keefo/klipper_config_switcher.git
+```
+
+1. **Run install.sh**
+
+```bash
+cd ~/klipper_config_switcher
+./install.sh
 ```
 
 2. Add the Plugin to printer.cfg:
