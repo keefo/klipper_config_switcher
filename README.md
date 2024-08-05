@@ -34,6 +34,7 @@ git clone https://github.com/keefo/klipper_config_switcher.git
 
 ```bash
 cd ~/klipper_config_switcher
+chmod +x install.sh 
 ./install.sh
 ```
 
