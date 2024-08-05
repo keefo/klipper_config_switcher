@@ -1,5 +1,3 @@
-# Klipper Config Switcher
-
 <p align="center">
   <a>
     <img src="https://raw.githubusercontent.com/keefo/klipper_config_switcher/main/screenshot.jpg" alt="Klipper Config Switcher" height="220">
