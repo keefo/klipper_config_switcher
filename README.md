@@ -39,6 +39,8 @@ day_config: ~/printer_data/config/printer_day.cfg
 night_config: ~/printer_data/config/printer_night.cfg
 ```
 
+You need to have these 2 files in your ~/printer_data/config folder.
+
 3. Add updater
 
 Add this section to moonraker.conf file
