@@ -1,15 +1,15 @@
 # Klipper Config Switcher
 
-## Overview
-
-The `klipper_config_switcher` is a custom Klipper plugin that allows users to switch between different printer configurations easily. This plugin is useful for those who need to switch between different setup configurations, such as day and night profiles, with a simple G-code command.
-
 <p align="center">
   <a>
-    <img src="https://raw.githubusercontent.com/keefo/klipper_config_switcher/main/screenshot.jpg" alt="Klipper Config Switcher" height="181">
+    <img src="https://raw.githubusercontent.com/keefo/klipper_config_switcher/main/screenshot.jpg" alt="Klipper Config Switcher" height="220">
     <h1 align="center">Klipper Config Switcher</h1>
   </a>
 </p>
+
+## Overview
+
+The `klipper_config_switcher` is a custom Klipper plugin that allows users to switch between different printer configurations easily. This plugin is useful for those who need to switch between different setup configurations, such as day and night profiles, with a simple G-code command.
 
 ## Features
 - Switch between different configuration files.
