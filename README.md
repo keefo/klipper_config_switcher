@@ -66,3 +66,10 @@ SWITCH_CONFIG CONFIG=day
 SWITCH_CONFIG CONFIG=night
 ```
 
+Check current config
+
+```
+CHECK_CONFIG
+```
+
+With mainsail you should be able to turn them into buttons and add to your dashboard.
