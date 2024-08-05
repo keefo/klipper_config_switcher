@@ -29,6 +29,14 @@ class ConfigSwitcher:
         return hash_md5.hexdigest()
 
     def cmd_SWITCH_CONFIG(self, gcmd):
+        print_stats = self.printer.lookup_object('print_stats')
+        eventtime = self.printer.get_reactor().monotonic()
+        state = print_stats.get_status(eventtime)['state']
+        if state not in ['standby']:
+            gcmd.respond_info("Cannot switch config while printer is printing or paused.")
+            logging.info("Cannot switch config while printer is printing or paused.")
+            return
+        
         config_name = gcmd.get('CONFIG', '').lower()  # Retrieve the CONFIG argument
         if config_name == 'day':
             source_config = self.day_config
