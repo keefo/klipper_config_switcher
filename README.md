@@ -10,7 +10,7 @@
 The `klipper_config_switcher` is a custom Klipper plugin that allows users to switch between different printer configurations easily. This plugin is useful for those who need to switch between different setup configurations, such as day and night profiles, with a simple G-code command.
 
 ## Features
-- Switch between different configuration files.
+- Switch between day and night configuration files.
 - Validate the configuration switch using MD5 checksum.
 - Restart the Klipper firmware after a successful configuration switch.
 - Check the current configuration file in use.
@@ -18,6 +18,7 @@ The `klipper_config_switcher` is a custom Klipper plugin that allows users to sw
 ## Installation
 
 ### Prerequisites
+
 - Klipper firmware installed and running on your 3D printer.
 - Access to the Raspberry Pi or other control hardware running Klipper.
 
@@ -34,11 +35,10 @@ git clone https://github.com/keefo/klipper_config_switcher.git
 
 ```bash
 cd ~/klipper_config_switcher
-chmod +x install.sh 
 ./install.sh
 ```
 
-2. Add the Plugin to printer.cfg:
+2. Add the Plugin config section to printer.cfg:
 
 Open your printer.cfg file and add the following section:
 
@@ -50,9 +50,9 @@ night_config: ~/printer_data/config/printer_night.cfg
 
 You need to have these 2 files in your ~/printer_data/config folder.
 
-3. Add updater
+3. Add update manager in moonraker
 
-Add this section to moonraker.conf file
+If you are using moonraker, you can add this section to moonraker.conf file
 
 ```
 [update_manager klipper_config_switcher]
