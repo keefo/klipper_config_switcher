@@ -8,7 +8,9 @@ import time
 class ConfigSwitcher:
     def __init__(self, config):
         logging.info("switcher  ConfigSwitcher initialized")
-
+        
+        self.save_config_marker = "#*# <---------------------- SAVE_CONFIG ---------------------->"
+        
         self.printer = config.get_printer()
         self.gcode = self.printer.lookup_object('gcode')
         self.gcode.register_command('SWITCH_CONFIG', self.cmd_SWITCH_CONFIG)
@@ -19,6 +21,45 @@ class ConfigSwitcher:
         self.night_config = os.path.expanduser(config.get('night_config'))
         logging.info(f"Day config: {self.day_config}")
         logging.info(f"Night config: {self.night_config}")
+        
+        # sync SAVE_CONFIG section to other configs
+        save_part = self.extract_config_content(os.path.expanduser('~/printer_data/config/printer.cfg'))
+        self.replace_config_content(self.day_config, save_part)
+        self.replace_config_content(self.night_config, save_part)
+        
+        
+    def replace_config_content(self, file_path, new_content):
+        lines = []
+        save_config_found = False
+        with open(file_path, 'r') as file:
+            for line in file:
+                if self.save_config_marker in line:
+                    save_config_found = True
+                    lines.append(line)
+                    break
+                lines.append(line)
+        
+        if save_config_found:
+            lines.append(new_content)
+            with open(file_path, 'w') as file:
+                file.writelines(lines)
+        else:
+            raise ValueError("SAVE_CONFIG section not found in the file.")
+
+
+    def extract_config_content(self, file_path):
+        config_content = []
+        save_config_found = False
+
+        with open(file_path, 'r') as file:
+            for line in file:
+                if self.save_config_marker in line:
+                    save_config_found = True
+                    continue  # Skip the marker line
+                if save_config_found:
+                    config_content.append(line)
+
+        return ''.join(config_content)
 
     def calculate_md5(self, file_path):
         """Calculate MD5 checksum of the given file."""
