@@ -73,7 +73,7 @@ class ConfigSwitcher:
         print_stats = self.printer.lookup_object('print_stats')
         eventtime = self.printer.get_reactor().monotonic()
         state = print_stats.get_status(eventtime)['state']
-        if state not in ['standby', 'idle', 'idle_state']:
+        if state not in ['standby', 'idle', 'idle_state', 'complete']:
             gcmd.respond_info(f"Cannot switch config while printer is {state} state.")
             logging.info(f"Cannot switch config while printer is {state} state.")
             return
