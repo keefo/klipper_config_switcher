@@ -84,8 +84,19 @@ class ConfigSwitcher:
         elif config_name == 'night':
             source_config = self.night_config
         else:
-            gcmd.respond_info(f"Unknown config: {config_name}")
-            return
+            destination = os.path.expanduser('~/printer_data/config/printer.cfg')
+            if os.path.exists(destination):
+                current_md5 = self.calculate_md5(destination)
+                if current_md5 == self.calculate_md5(self.day_config):
+                    source_config = self.night_config
+                elif current_md5 == self.calculate_md5(self.night_config):
+                    source_config = self.day_config
+                else:
+                    gcmd.respond_info("Current configuration does not match day_config or night_config")
+                    return
+            else:
+                gcmd.respond_info("No configuration file found")
+                return
 
         destination = os.path.expanduser('~/printer_data/config/printer.cfg')
         
