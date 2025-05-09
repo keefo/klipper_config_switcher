@@ -59,9 +59,10 @@ You need to have these 2 files in your ~/printer_data/config folder.
 
     • Do not edit printer.cfg directly.
     • Make all configuration changes in printer_day.cfg or printer_night.cfg.
+    • The plugin will automatically sync auto-generated SAVE_CONFIG section from printer.cfg to printer_day.cfg and printer_night.cfg
     • The plugin will then copy the selected file to printer.cfg.
 
-3. Add update manager in moonraker
+1. Add update manager in moonraker
 
 If you are using moonraker, you can add this section to moonraker.conf file
 
