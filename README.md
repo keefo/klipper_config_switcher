@@ -17,6 +17,9 @@ The `klipper_config_switcher` is a custom Klipper plugin that allows users to sw
 
 ## Installation
 
+### ⚠️Warning⚠️
+Installing this plugin will overwrite your printer.cfg file. Please back up your existing printer.cfg before proceeding.
+
 ### Prerequisites
 
 - Klipper firmware installed and running on your 3D printer.
@@ -48,7 +51,15 @@ day_config: ~/printer_data/config/printer_day.cfg
 night_config: ~/printer_data/config/printer_night.cfg
 ```
 
-You need to have these 2 files in your ~/printer_data/config folder.
+You need to have these 2 files in your ~/printer_data/config folder. 
+
+    ⚠️ Important: 
+
+     Enabling this plugin will overwrite your printer.cfg with the profile you choose.
+
+    • Do not edit printer.cfg directly.
+    • Make all configuration changes in printer_day.cfg or printer_night.cfg.
+    • The plugin will then copy the selected file to printer.cfg.
 
 3. Add update manager in moonraker
 
